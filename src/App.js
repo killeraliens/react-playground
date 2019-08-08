@@ -7,6 +7,7 @@ import TheDate from './state/TheDate';
 import Counter from './state/Counter';
 import HelloWorld from './state/HelloWorld';
 import Bomb from './state/Bomb';
+import RouletteGun from './state/RouletteGun';
 
 
 const firstTooltip = (
@@ -42,6 +43,7 @@ function App() {
         <TheDate />
         <Counter count={666} step={6}/>
         <HelloWorld />
+        <RouletteGun />
         <Bomb />
       </Split>
     </main>

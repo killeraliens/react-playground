@@ -51,7 +51,7 @@ class Bomb extends React.Component {
 
 
   render() {
-    console.log(this.state.count);
+    // console.log(this.state.count);
     let bombStatus;
     if (this.state.count % 2 === 0 && this.state.count <= 8) {
       bombStatus = 'tick';
