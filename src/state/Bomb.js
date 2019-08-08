@@ -61,7 +61,7 @@ class Bomb extends React.Component {
       bombStatus = 'BOOOM!'
     }
     if (this.state.count > 8 ) {
-      this.componentWillUnmount();
+      clearInterval(this.state.interval);
     }
     return (
       <div>

@@ -30,7 +30,7 @@ class RouletteGun extends React.Component {
   }
 
   render() {
-    console.log(this.state.chamber);
+    // console.log(this.state.chamber);
     let gameStatus;
     if (this.state.spinningTheChamber === true) {
       gameStatus = 'spinning the chamber and pulling the trigger!';
