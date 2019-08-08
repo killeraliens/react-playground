@@ -1,0 +1,21 @@
+.Messages {
+  background-color: lightgrey;
+  position: relative;
+  display: block;
+/*  display: flex;
+  justify-content: center;
+  align-items: center;*/
+  padding: 20px;
+  margin: 10px;
+
+}
+
+.messages-alert {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 6px;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+}

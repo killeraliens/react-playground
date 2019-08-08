@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Message component does not render badge if unreadQty is zero 1`] = `
+<div
+  className="Messages"
+>
+  <span
+    className="messages-name"
+  >
+    Messages
+  </span>
+</div>
+`;
+
+exports[`Message component renders the UI as expected 1`] = `
+<div
+  className="Messages"
+>
+  <span
+    className="messages-alert"
+  >
+    4
+  </span>
+  <span
+    className="messages-name"
+  >
+    Messages
+  </span>
+</div>
+`;
+
+exports[`does not render badge if unreadQty is zero 1`] = `
+<div
+  className="Messages"
+>
+  <span
+    className="messages-name"
+  >
+    Messages
+  </span>
+</div>
+`;
+
+exports[`renders the UI as expected 1`] = `
+<div
+  className="Messages"
+>
+  <span
+    className="messages-alert"
+  >
+    4
+  </span>
+  <span
+    className="messages-name"
+  >
+    Messages
+  </span>
+</div>
+`;
