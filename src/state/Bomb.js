@@ -34,10 +34,14 @@ class Bomb extends React.Component {
   //   }, 5000);
   // }
   componentDidMount() {
+    this.startBomb();
+  }
+
+  startBomb = () => {
+    this.setState({ count: this.props.count})
     let startBomb = setInterval(() => {
        this.setState({ count: this.state.count + 1})
     }, 1000);
-
     this.setState({interval: startBomb});
   }
 
@@ -57,11 +61,12 @@ class Bomb extends React.Component {
       bombStatus = 'BOOOM!'
     }
     if (this.state.count > 8 ) {
-      clearInterval(this.state.interval);
+      this.componentWillUnmount();
     }
     return (
       <div>
         <p>{bombStatus}</p>
+        <button onClick={this.startBomb}>Restart Bomb</button>
       </div>
     )
   }
