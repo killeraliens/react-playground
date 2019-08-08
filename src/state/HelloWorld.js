@@ -13,9 +13,9 @@ class HelloWorld extends React.Component {
   }
 
   handleButtonClick = (e) => {
-    console.log('who state', this.state.who);
-    console.log('who props', this.props.who);
-    console.log(e.target.textContent);
+    // console.log('who state', this.state.who);
+    // console.log('who props', this.props.who);
+    // console.log(e.target.textContent);
 
     this.setState({
       who: e.target.textContent
@@ -23,7 +23,7 @@ class HelloWorld extends React.Component {
   }
 
   render() {
-    console.log('helloworld renders');
+    // console.log('helloworld renders');
     return (
       <div>
         <p>

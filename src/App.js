@@ -5,6 +5,8 @@ import Tooltip from './composition/Tooltip';
 import Messages from './Messages.js';
 import TheDate from './state/TheDate';
 import Counter from './state/Counter';
+import HelloWorld from './state/HelloWorld';
+import Bomb from './state/Bomb';
 
 
 const firstTooltip = (
@@ -39,6 +41,8 @@ function App() {
       <Split className='right'>
         <TheDate />
         <Counter count={666} step={6}/>
+        <HelloWorld />
+        <Bomb />
       </Split>
     </main>
   );
