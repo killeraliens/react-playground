@@ -1,13 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tabs Component renders without crashing 1`] = `
+exports[`Tabs Component renders empty with no tab props passed 1`] = `
 <div
   className="Tabs"
->
-  <div
-    className="tab-content"
-  />
-</div>
+/>
 `;
 
 exports[`Tabs Component shows first tab content on default 1`] = `
@@ -17,18 +13,21 @@ exports[`Tabs Component shows first tab content on default 1`] = `
   <button
     id={0}
     key="0"
+    onClick={[Function]}
   >
     name 1
   </button>
   <button
     id={1}
     key="1"
+    onClick={[Function]}
   >
     name 2
   </button>
   <button
     id={2}
     key="2"
+    onClick={[Function]}
   >
     name 3
   </button>

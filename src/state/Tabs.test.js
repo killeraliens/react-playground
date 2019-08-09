@@ -15,8 +15,9 @@ const tabsProp = [
 
 describe('Tabs Component', () => {
   it('renders without crashing', () => {
-    const wrapper = shallow(<Tabs />);
-    expect(toJson(wrapper)).toMatchSnapshot();
+    const div = document.createElement('div');
+    ReactDOM.render(<Tabs />, div);
+    ReactDOM.unmountComponentAtNode(div);
   });
 
   it('renders a button for each tab', () => {
@@ -25,6 +26,11 @@ describe('Tabs Component', () => {
     expect(buttonQty).toEqual(tabsProp.length);
   });
 
+  it('renders empty with no tab props passed', () => {
+    const wrapper = shallow(<Tabs />);
+    expect(toJson(wrapper)).toMatchSnapshot();
+  })
+
   it('button text should match tab item title', ()=> {
     const wrapper = shallow(<Tabs tabs={tabsProp} />);
     const firstButtonText = wrapper.find('button').at(0).innerText;
@@ -32,12 +38,11 @@ describe('Tabs Component', () => {
   });
 
   it('shows first tab content on default', () => {
-    // const div = document.createElement('div');
-    // ReactDOM.render(<Tabs tabs={tabsProp} />, div);
-    // ReactDOM.unmountComponentAtNode(div);
     const wrapper = shallow(<Tabs tabs={tabsProp} />);
     expect(toJson(wrapper)).toMatchSnapshot();
   });
+
+
 
 
 })

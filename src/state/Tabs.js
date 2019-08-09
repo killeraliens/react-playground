@@ -11,25 +11,35 @@ class Tabs extends React.Component {
     super(props);
 
     this.state = {
-      current: null
+      current: 0
     }
   }
 
-  handleButtonClick = (index) => {
+  handleButtonClick(index) {
+    this.setState({current: index});
+  }
+
+  renderButtons() {
+    return this.props.tabs.map((tab, i) => (
+      <button key={i} id={i} onClick={() => this.handleButtonClick(i)}>{tab.name}</button>
+    ));
 
   }
 
-  renderContent = () => {
-
+  renderContent() {
+    const currentTab = this.props.tabs[this.state.current];
+    return(
+      <div className='tab-content'>
+        {currentTab.content}
+      </div>
+    )
   }
 
   render() {
-    const buttons = this.props.tabs.map((tab, i) => <button key={i} id={i} onClick={this.handleButtonClick(i)}>{tab.name}</button> ) ;
-    const currentTab = this.props.tabs[0];
     return (
       <div className='Tabs'>
-        {buttons}
-        <div className='tab-content'>{currentTab ? currentTab.content : null}</div>
+        {this.renderButtons()}
+        {this.props.tabs[0] && this.renderContent()}
       </div>
     )
   }
