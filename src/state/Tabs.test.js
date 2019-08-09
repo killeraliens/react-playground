@@ -42,7 +42,17 @@ describe('Tabs Component', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-
-
+  it('clicking tab button shows matching content', () => {
+    const wrapper = shallow(<Tabs tabs={tabsProp} />);
+    // console.log('>>> WRAPPER <<<')
+    // console.log(wrapper.debug())
+    wrapper.find('button').at(2).simulate('click');
+    // console.log('>>> BUTTON <<<')
+    // console.log(wrapper.find('button').at(2).debug())
+    const contentText = wrapper.find('div.tab-content').text();
+    // console.log('>>> CONTENT <<<')
+    // console.log(wrapper.find('div.tab-content').debug())
+    expect(contentText).toEqual(tabsProp[2].content);
+  })
 
 })
