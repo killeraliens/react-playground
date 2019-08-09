@@ -1,4 +1,5 @@
 import React from 'react';
+import './Tabs.css';
 
 
 class Tabs extends React.Component {
@@ -13,12 +14,22 @@ class Tabs extends React.Component {
       current: null
     }
   }
+
+  handleButtonClick = (index) => {
+
+  }
+
+  renderContent = () => {
+
+  }
+
   render() {
+    const buttons = this.props.tabs.map((tab, i) => <button key={i} id={i} onClick={this.handleButtonClick(i)}>{tab.name}</button> ) ;
+    const currentTab = this.props.tabs[0];
     return (
-      <div>
-        {this.props.tabs.map((tab, i) => {
-          return <button key={i} id={i}>{tab.name}</button>
-        })}
+      <div className='Tabs'>
+        {buttons}
+        <div className='tab-content'>{currentTab ? currentTab.content : null}</div>
       </div>
     )
   }
