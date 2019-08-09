@@ -44,4 +44,15 @@ describe('Accordian component', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   })
 
+  it('li button second click hides section', () => {
+    const wrapper = shallow(<Accordian sections={sectionsProp} />);
+    wrapper.find('button').at(0).simulate('click', { target: {'id': 0} });
+    setTimeout(() => {
+      wrapper.find('button').at(0).simulate('click', { target: {'id': 0} })
+      const sectionContentDivText = wrapper.find('li').at(0).find('div').at(0).text();
+      expect(sectionContentDivText).toEqual("");
+    }, 1000);
+
+  })
+
 })
