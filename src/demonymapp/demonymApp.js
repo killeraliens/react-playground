@@ -1,5 +1,6 @@
 import React from 'react';
 import Demonym from './demonym';
+import './demonymApp.css';
 import CountrySelector from './countrySelector';
 
 
@@ -36,17 +37,23 @@ class DemonymApp extends React.Component {
 
   handleCountryUpdate = (value) => {
     console.log(value);
-    const foundCountry = this.state.countries.find(obj => obj.name === value);
-    this.setState({
-      selectedCountry: foundCountry
-    })
+    if(value === "None") {
+      this.setState({
+        selectedCountry: null
+      });
+    } else {
+      const foundCountry = this.state.countries.find(obj => obj.name === value);
+      this.setState({
+        selectedCountry: foundCountry
+      });
+    }
   }
 
   render() {
     console.log(this.state.selectedCountry);
     const demonym = this.state.selectedCountry
       ?  <Demonym name={this.state.selectedCountry['citizen-names']} country={this.state.selectedCountry.name}/>
-      : <div className="demonym_placeholder">Choose a Country!</div>;
+      : <div className="demonym_placeholder">Choose a Country</div>;
     return(
       <div className="DemonymApp">
         <CountrySelector countries={this.state.countries} onCountryUpdate={this.handleCountryUpdate}/>
