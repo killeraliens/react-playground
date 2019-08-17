@@ -2,7 +2,12 @@ import React from 'react';
 
 class CountrySelector extends React.Component {
   handleChange = (e) => {
-    this.props.onCountryUpdate(e.target.value);
+    if(e.target.value === "None") {
+      this.props.onCountryUpdate(null);
+    } else {
+      const foundCountry = this.state.countries.find(obj => obj.name === e.target.value);
+      this.props.onCountryUpdate(foundCountry);
+    }
   }
 
   render() {

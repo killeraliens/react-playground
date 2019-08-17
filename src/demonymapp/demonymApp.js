@@ -35,18 +35,8 @@ class DemonymApp extends React.Component {
     })
   }
 
-  handleCountryUpdate = (value) => {
-    console.log(value);
-    if(value === "None") {
-      this.setState({
-        selectedCountry: null
-      });
-    } else {
-      const foundCountry = this.state.countries.find(obj => obj.name === value);
-      this.setState({
-        selectedCountry: foundCountry
-      });
-    }
+  handleCountryUpdate = (selected) => {
+    this.setState({selectedCountry: selected})
   }
 
   render() {
