@@ -8,6 +8,9 @@ import Counter from './state/Counter';
 import HelloWorld from './state/HelloWorld';
 import Bomb from './state/Bomb';
 import RouletteGun from './state/RouletteGun';
+import Accordian from './state/Accordian';
+import Tabs from './state/Tabs';
+// import Demonym from './demonymapp/demonym';
 
 
 const firstTooltip = (
@@ -26,6 +29,19 @@ const thirdTooltip = (
   </Tooltip>
 );
 
+
+
+const sectionProps = [
+  {title: 'title 1', section: 'section 1 & some content'},
+  {title: 'title 2', section: 'section 2 & some content'},
+  {title: 'title 3', section: 'section 3 & some content'}
+];
+const tabsProp = [
+  {name: 'name 1', content: 'content 1 & some content'},
+  {name: 'name 2', content: 'content 2 & some content'},
+  {name: 'name 3', content: 'content 3 & some content'}
+];
+
 function App() {
   return (
     <main className='App'>
@@ -34,7 +50,11 @@ function App() {
           <Messages name="messages" unreadQty={0} />
         </div>
       <Split className='left' flexBasis='2'>
-        Left split content
+        <header>Left split content</header>
+        <div>
+          <Tabs tabs={tabsProp}/>
+          <Accordian sections={sectionProps}/>
+        </div>
         {firstTooltip}
         {secondTooltip}
         {thirdTooltip}
