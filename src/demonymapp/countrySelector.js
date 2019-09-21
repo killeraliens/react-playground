@@ -5,7 +5,7 @@ class CountrySelector extends React.Component {
     if(e.target.value === "None") {
       this.props.onCountryUpdate(null);
     } else {
-      const foundCountry = this.state.countries.find(obj => obj.name === e.target.value);
+      const foundCountry = this.props.countries.find(obj => obj.name === e.target.value);
       this.props.onCountryUpdate(foundCountry);
     }
   }

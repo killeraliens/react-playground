@@ -10,7 +10,7 @@ import Bomb from './state/Bomb';
 import RouletteGun from './state/RouletteGun';
 import Accordian from './state/Accordian';
 import Tabs from './state/Tabs';
-// import Demonym from './demonymapp/demonym';
+import DemonymApp from './demonymapp/demonymApp';
 
 
 const firstTooltip = (
@@ -58,6 +58,7 @@ function App() {
         {firstTooltip}
         {secondTooltip}
         {thirdTooltip}
+        <DemonymApp />
       </Split>
       <Split className='right'>
         <TheDate />
