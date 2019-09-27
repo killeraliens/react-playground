@@ -1,0 +1,21 @@
+.AppLang * {
+  color: white;
+  padding: 20px;
+  margin: 20px;
+}
+
+.AppLang {
+  background-color: rgb(200, 200, 200);
+}
+
+.Child {
+  background-color: rgb(150, 150, 150);
+}
+
+.Grandchild {
+  background-color: rgb(120, 120, 120);
+}
+
+.GreatGrandchild {
+  background-color: rgb(70, 70, 70);
+}
