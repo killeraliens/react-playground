@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 import AddEventPg from './AddEventPg'
+import ListPg from './ListPg'
 
 
 class ScrapeApp extends Component {
@@ -15,11 +16,22 @@ class ScrapeApp extends Component {
   render() {
     return(
       <div className="ScrapeApp">
-        <Route exact path="/" render={(routeProps) => {
-          return(
-            <AddEventPg onAddEvent={this.addEvent} { ...routeProps }/>
-          )
-        }}/>
+        <div>
+          <Link to='/add-event'>Add Event</Link>{<br/>}
+          <Link to='/'>Events</Link>
+        </div>
+        <Switch>
+          <Route exact path="/" render={(routeProps) => {
+            return(
+              <ListPg events={this.state.events} { ...routeProps }/>
+            )
+          }}/>
+          <Route path="/add-event" render={(routeProps) => {
+            return(
+              <AddEventPg onAddEvent={this.addEvent} { ...routeProps }/>
+            )
+          }}/>
+        </Switch>
       </div>
     )
   }
