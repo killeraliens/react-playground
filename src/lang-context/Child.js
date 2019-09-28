@@ -4,10 +4,10 @@ import Grandchild from './Grandchild'
 class Child extends Component {
   render() {
     return(
-      <div className='Child'>
+      <main className='Child'>
         I am the child.
         <Grandchild />
-      </div>
+      </main>
     )
   }
 }

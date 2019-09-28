@@ -1,21 +1,27 @@
-.AppLang * {
+.AppLang *:not(button, span) {
   color: white;
   padding: 20px;
   margin: 20px;
 }
 
+.AppLang button {
+  background-color: lightgrey;
+  padding: 8px 16px;
+  margin: 8px;
+}
+
 .AppLang {
-  background-color: rgb(200, 200, 200);
+  background-color: rgb(70, 70, 70);
 }
 
 .Child {
-  background-color: rgb(150, 150, 150);
-}
-
-.Grandchild {
   background-color: rgb(120, 120, 120);
 }
 
+.Grandchild {
+  background-color: rgb(150, 150, 150);
+}
+
 .GreatGrandchild {
-  background-color: rgb(70, 70, 70);
+  background-color: rgb(200, 200, 200);
 }
