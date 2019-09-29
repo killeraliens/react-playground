@@ -6,14 +6,30 @@ import cheerio from 'cheerio';
 class UrlForm extends Component {
 
   state = {
-    urlVal: ''
+    urlVal: '',
+    eventObj: {},
+    loading: false
   }
 
 
   updateUrlVal = (e) => {
     this.setState({
-      urlVal: e.target.value
+      urlVal: e.target.value,
+      event: {}
     })
+  }
+
+  makeEventWithCheerio = ($) => {
+    const eventObj = this.state.event
+    console.log('Title:', $('h1').text())
+    $('h1').text()
+      ? eventObj.title = $('h1').text()
+      : eventObj.title = 'Couldnt find title';
+    this.setState({
+      event: eventObj
+    })
+
+    //console.log(cheerio)
   }
 
   handleSubmit = (e) => {
@@ -33,10 +49,20 @@ class UrlForm extends Component {
       this.setState({
         urlVal: ''
       });
-      //this.props.onAddEvent(res)
       let $ = cheerio.load(res);
-
-      console.log('Title:', $('h1').text())
+      this.makeEventWithCheerio($);
+      this.setState({
+        loading: true
+      })
+    })
+    .then(() => {
+        console.log(this.state.event);
+        const newEvent = this.state.event
+        this.props.onAddEvent(newEvent)
+        this.setState({
+          loading: false,
+          event: {}
+        })
     })
     .catch(err => {
       console.log('ERROR REASON:', err)
@@ -45,6 +71,10 @@ class UrlForm extends Component {
   }
 
   render() {
+    if(this.state.loading) {
+      return <div>Loading...</div>
+    }
+
     return(
       <form className="UrlForm" onSubmit={this.handleSubmit}>
         <label htmlFor="url-input">Type in URL</label>
