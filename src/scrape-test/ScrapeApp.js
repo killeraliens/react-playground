@@ -6,7 +6,8 @@ import ListPg from './ListPg'
 
 class ScrapeApp extends Component {
   state = {
-    events: []
+    events: [],
+    venues: []
   }
 
   addEvent = (e) => {

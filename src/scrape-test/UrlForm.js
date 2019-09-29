@@ -8,6 +8,7 @@ class UrlForm extends Component {
   state = {
     urlVal: '',
     eventObj: {},
+    venueObj: {},
     loading: false
   }
 
@@ -28,8 +29,7 @@ class UrlForm extends Component {
     this.setState({
       event: eventObj
     })
-
-    //console.log(cheerio)
+    //my event object needs to reference a venue id or create a new venue object
   }
 
   handleSubmit = (e) => {
@@ -56,16 +56,22 @@ class UrlForm extends Component {
       })
     })
     .then(() => {
+        // I need to check the accuracy of the event object here and throw
+        // an error if the data is not right or they need to re-enter the url
+        // how is best to handle form errors? (will need more for custom form)
         console.log(this.state.event);
         const newEvent = this.state.event
-        this.props.onAddEvent(newEvent)
         this.setState({
           loading: false,
           event: {}
         })
+        this.props.onAddEvent(newEvent);
+        this.props.history.push('/');
     })
     .catch(err => {
       console.log('ERROR REASON:', err)
+      this.props.history.push('/add-event');
+      //this.props.passErrorStatusText(err)
       // how do I use context to set a global App error with the message (so that ScrapeApp renders correct page)?
     })
   }

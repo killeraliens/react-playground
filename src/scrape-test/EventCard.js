@@ -13,9 +13,10 @@ export default function EventCard(props) {
 
 EventCard.defaultProps = {
   event: {
-    title: 'unknown title',
-    imageUrl: 'unknown image url',
+    title: 'title NA',
+    imageUrl: 'imageUrl NA',
     date: 'date NA',
-    bands: 'artists NA'
+    bands: 'band NA',
+    venueId: 'venueId NA' //how should i set this? event card is temp event db
   }
 }
