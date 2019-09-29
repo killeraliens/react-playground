@@ -21,16 +21,26 @@ class UrlForm extends Component {
   }
 
   makeEventWithCheerio = ($) => {
+    //is this a safe way to create the object state?
     const eventObj = this.state.event
-    console.log('Title:', $('h1').text())
-    $('h1').text()
-      ? eventObj.title = $('h1').text()
-      : eventObj.title = 'Couldnt find title';
+    //console.log($('#event_summary').find('ul').text());
+    //$('ul').childNodes.forEach(child => console.log('child:', child.text()))
+    //console.log($('div[id="event_summary"]').text()); //find('div[class="_2ycp _5xhk"]')
+    //const divChildren = $('div')[0].children;
+    //console.log($(divChildren).each(child => console.log($(child).find('div').text())));
+    //console.log($('body').text())
+    console.log($('body').html())
+    //$('span').each(div => {console.log($(div).text())})
+    //if ($('#seo_h1_tag')) eventObj.title = $('#seo_h1_tag').text();
+    //console.log($.root().html());
+
+
     this.setState({
       event: eventObj
     })
     //my event object needs to reference a venue id or create a new venue object
   }
+
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -41,14 +51,16 @@ class UrlForm extends Component {
     fetch(corsMed + url)
     .then(res => {
       if(!res.ok) {
-        throw new Error(res.statusText)
+        throw new Error({res})
       }
+      //console.log(res.body);
       return res.text()
     })
     .then(res => {
       this.setState({
         urlVal: ''
       });
+      console.log(res)
       let $ = cheerio.load(res);
       this.makeEventWithCheerio($);
       this.setState({
@@ -59,7 +71,7 @@ class UrlForm extends Component {
         // I need to check the accuracy of the event object here and throw
         // an error if the data is not right or they need to re-enter the url
         // how is best to handle form errors? (will need more for custom form)
-        console.log(this.state.event);
+        //console.log(this.state.event);
         const newEvent = this.state.event
         this.setState({
           loading: false,

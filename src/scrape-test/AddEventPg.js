@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, NavLink } from 'react-router-dom';
 import UrlForm from './UrlForm';
+import CustomEventForm from './CustomEventForm';
 
 export default function AddEventPg(props) {
   return(
@@ -23,7 +24,7 @@ export default function AddEventPg(props) {
       />
       <Route path='/add-event/custom-form' render={(routeProps) => {
         return(
-          <UrlForm onAddEvent={props.onAddEvent} {...routeProps}/>
+          <CustomEventForm onAddEvent={props.onAddEvent} {...routeProps}/>
         )
       }}
       />
