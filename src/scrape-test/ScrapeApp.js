@@ -6,33 +6,33 @@ import ListPg from './ListPg'
 
 class ScrapeApp extends Component {
   state = {
-    events: null,
+    events: [],
     data: null
   }
 
-  componentDidMount() {
-    this.callBackendAPI()
-      .then(res => {
-        console.log('events from my server', res.events)
-        this.setState({
-          data: res.express,
-          events: res.events
-        })
+  // componentDidMount() {
+  //   this.callBackendAPI()
+  //     .then(res => {
+  //       console.log('events from my server', res.events)
+  //       this.setState({
+  //         data: res.express,
+  //         events: res.events
+  //       })
 
-      })
-      .catch(err => console.log('ERROR ON SERVER MOUNT', err))
-  }
+  //     })
+  //     .catch(err => console.log('ERROR ON SERVER MOUNT', err))
+  // }
 
-  callBackendAPI = async () => {
-    const response = await fetch('/express_backend');
-    const body = await response.json();
+  // callBackendAPI = async () => {
+  //   const response = await fetch('/express_backend');
+  //   const body = await response.json();
 
-    if (response.status !== 200) {
-      throw Error(body.message)
-    }
+  //   if (response.status !== 200) {
+  //     throw Error(body.message)
+  //   }
 
-    return body
-  }
+  //   return body
+  // }
 
   addEvent = (e) => {
     console.log('adding event', e)
