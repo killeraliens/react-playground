@@ -17,7 +17,7 @@ class CustomEventForm extends Component {
     this.props.onAddEvent(newEvent)
   }
 
-  makeEvent = (e) => {
+  handleSubmit = (e) => {
     e.preventDefault();
 
     const newEvent = { ...this.state.event };
@@ -34,7 +34,7 @@ class CustomEventForm extends Component {
 
   render() {
     return(
-      <form className="CustomEventForm" onSubmit={this.makeEvent}>
+      <form className="CustomEventForm" onSubmit={this.handleSubmit}>
         <label htmlFor="event-title">Title</label>
         <input type="text" id="event-title" name="event-title" value={this.state.event.title} onChange={this.updateTitle} />
         <button type="submit">Add It</button>
