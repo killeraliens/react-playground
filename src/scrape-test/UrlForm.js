@@ -21,8 +21,8 @@ class UrlForm extends Component {
   }
 
   makeEventWithCheerio = ($) => {
-    //is this a safe way to create the object state?
-    const eventObj = this.state.event
+    //is this a safe way to create the copy object from its state?
+    const eventObj = { ...this.state.event }
     //console.log($('#event_summary').find('ul').text());
     //$('ul').childNodes.forEach(child => console.log('child:', child.text()))
     //console.log($('div[id="event_summary"]').text()); //find('div[class="_2ycp _5xhk"]')
@@ -31,7 +31,7 @@ class UrlForm extends Component {
     //console.log($('body').text())
     console.log($('body').html())
     //$('span').each(div => {console.log($(div).text())})
-    //if ($('#seo_h1_tag')) eventObj.title = $('#seo_h1_tag').text();
+    if ($('#seo_h1_tag')) eventObj.title = $('#seo_h1_tag').text();
     //console.log($.root().html());
 
 
@@ -72,7 +72,7 @@ class UrlForm extends Component {
         // an error if the data is not right or they need to re-enter the url
         // how is best to handle form errors? (will need more for custom form)
         //console.log(this.state.event);
-        const newEvent = this.state.event
+        const newEvent = { ...this.state.event }
         this.setState({
           loading: false,
           event: {}

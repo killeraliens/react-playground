@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function EventCard(props) {
+function EventCard(props) {
   return(
     <div>
       <h4>{props.event.title}</h4>
@@ -20,3 +20,5 @@ EventCard.defaultProps = {
     venueId: 'venueId NA' //how should i set this? event card is temp event db
   }
 }
+
+export default EventCard;

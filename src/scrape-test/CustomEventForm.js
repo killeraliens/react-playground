@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 
 class CustomEventForm extends Component {
   state = {
-    title: '',
-    imageUrl: '',
-    date: '',
-    bands: '',
-    venueId: ''
+    event: {
+      title: '',
+      imageUrl: '',
+      date: '',
+      bands: '',
+      venueId: ''
+    },
+
   }
 
   validate = (newEvent) => {
@@ -19,21 +22,23 @@ class CustomEventForm extends Component {
 
     // how do i shorthand the creation of an event object from these state values?
     // how do i Safely clone this.state object
-    const newEvent = { ...this.state };
+    const newEvent = { ...this.state.event };
     this.validate(newEvent);
   }
 
+  // how do I set the state on a sub-object
   updateTitle = (e) => {
-    this.setState({
-      title: e.target.value
-    })
+    // this.setState(
+    // event: {
+    //   title: e.target.value
+    // })
   }
 
   render() {
     return(
       <form className="CustomEventForm" onSubmit={this.makeEvent}>
         <label htmlFor="event-title">Title</label>
-        <input type="text" id="event-title" name="event-title" value={this.state.title} onChange={this.updateTitle}/>
+        <input type="text" id="event-title" name="event-title" value={this.state.title} onChange={this.updateTitle} />
         <button type="submit">Add It</button>
       </form>
     )
