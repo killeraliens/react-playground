@@ -5,14 +5,26 @@ import LanguageContext from './LanguageContext'
 import './AppLang.css'
 
 class AppLang extends Component {
+  state = {
+    lang: window.navigator.language
+  }
+
+  updateLanguage = (lang) => {
+    this.setState({lang: lang})
+  }
 
   render() {
+    const contextValue = {
+      lang: this.state.lang
+    }
     return(
-      <div className='AppLang'>
-        App Context
-        <LangControls />
-        <Child />
-      </div>
+      <LanguageContext.Provider value={contextValue}>
+        <div className='AppLang'>
+          App Context
+          <LangControls onUpdate={this.updateLanguage}/>
+          <Child />
+        </div>
+      </LanguageContext.Provider>
     )
   }
 }
