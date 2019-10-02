@@ -8,15 +8,15 @@ export default function LangControls(props) {
 
         return(
           <div className='LangControls'>
-            <button onClick={() => props.onUpdate('en-GB')} disabled={value.lang === 'en-GB'}>
+            <button onClick={() => value.updateLanguage('en-GB')} disabled={value.lang === 'en-GB'}>
               British{' '}
               <span role='img' aria-label='en-GB'>🇬🇧</span>
             </button>
-            <button onClick={() => props.onUpdate('en-US')} disabled={value.lang === 'en-US'}>
+            <button onClick={() => value.updateLanguage('en-US')} disabled={value.lang === 'en-US'}>
               American{' '}
               <span role='img' aria-label='en-US'>🇺🇸</span>
             </button>
-            <button onClick={() => props.onUpdate('ko')} disabled={value.lang === 'ko'}>
+            <button onClick={() => value.updateLanguage('ko')} disabled={value.lang === 'ko'}>
               Korean{' '}
               <span role='img' aria-label='ko'>🇰🇷</span>
             </button>

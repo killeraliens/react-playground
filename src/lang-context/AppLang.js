@@ -15,13 +15,14 @@ class AppLang extends Component {
 
   render() {
     const contextValue = {
-      lang: this.state.lang
+      lang: this.state.lang,
+      updateLanguage: this.updateLanguage
     }
     return(
       <LanguageContext.Provider value={contextValue}>
         <div className='AppLang'>
           App Context
-          <LangControls onUpdate={this.updateLanguage}/>
+          <LangControls updateLanguage={this.updateLanguage}/>
           <Child />
         </div>
       </LanguageContext.Provider>
