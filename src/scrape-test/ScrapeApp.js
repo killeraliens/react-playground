@@ -7,8 +7,20 @@ import ListPg from './ListPg'
 class ScrapeApp extends Component {
   state = {
     events: [],
-    data: null
+    data: null,
+    user: null
   }
+
+  // callBackendAPI = async () => {
+  //   const response = await fetch('/express_backend');
+  //   const body = await response.json();
+
+  //   if (response.status !== 200) {
+  //     throw Error(body.message)
+  //   }
+
+  //   return body
+  // }
 
   // componentDidMount() {
   //   this.callBackendAPI()
@@ -23,16 +35,6 @@ class ScrapeApp extends Component {
   //     .catch(err => console.log('ERROR ON SERVER MOUNT', err))
   // }
 
-  // callBackendAPI = async () => {
-  //   const response = await fetch('/express_backend');
-  //   const body = await response.json();
-
-  //   if (response.status !== 200) {
-  //     throw Error(body.message)
-  //   }
-
-  //   return body
-  // }
 
   addEvent = (e) => {
     console.log('adding event', e)

@@ -78,7 +78,20 @@ class UrlForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log('call api and make object next');
+    fetch('localhost:5000/express_backend')
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(res)
+      }
+      res.json()
+    })
+    .then(resJson => {
+      //set state
+    })
+    .catch(err => {
+      console.log('fetch related error use context', err)
+    })
+    //console.log('call api and make object next');
   }
 
   render() {

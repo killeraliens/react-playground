@@ -4,6 +4,7 @@ import UrlForm from './UrlForm';
 import CustomEventForm from './CustomEventForm';
 
 export default function AddEventPg(props) {
+  // add context consumer for user logged in state
   return(
     <div className="AddEventPg">
       <h2>Add an Event</h2>
