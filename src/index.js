@@ -29,16 +29,14 @@ class Login extends React.Component {
   }
 }
 
-const PrivateRoute = ({component: Component, path: Path, ...restProps}) => {
-  if (restProps.isAuth === true) {
-        return(
-          <Route path={Path} {...restProps} render={(props) => {
-            return <Component message='you made it!!' {...props}/>
-          }}/>
-        )
-  }
-  return <Redirect to='/login' />
-  //this method shows protected path but login component
+const PrivateRoute = (props) => {
+  //const {component: Component, path: Path, ...restProps} = props;
+  const {component: Component, render: RenderComp, path: Path, ...restProps} = props;
+  return restProps.isAuth === true && RenderComp
+    ? <Route path={Path} {...restProps} render={RenderComp}/>
+    : restProps.isAuth === true && Component
+    ? <Route path={Path} {...restProps} component={Component}/>
+    : <Redirect to='/login' />
 }
 
 class SampleApp extends React.Component {
@@ -54,10 +52,10 @@ class SampleApp extends React.Component {
         <Switch>
           <Route path='/public' component={Public}/>
           <Route path='/login' component={Login}/>
-          <PrivateRoute isAuth={this.state.auth} path='/protected' component={Protected}/>
-         {/* <PrivateRoute isAuth={this.state.auth} path='/protected' render={(props) => {
-            <Protected message='you made it!!' {...props}/>
-          }}/>*/}
+          {/*<PrivateRoute isAuth={this.state.auth} path='/protected' component={Protected}/>*/}
+          <PrivateRoute isAuth={this.state.auth} path='/protected' render={(props) => {
+            return <Protected message='you made it!!' {...props}/>
+          }}/>
 
         </Switch>
       </div>
