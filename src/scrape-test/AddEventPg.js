@@ -5,7 +5,7 @@ import CustomEventForm from './CustomEventForm';
 
 export default function AddEventPg(props) {
 
-  handleOnAddEvent = (props) => {
+  const handleOnAddEvent = (props) => {
     props.history.push('/')
   }
 
@@ -23,13 +23,13 @@ export default function AddEventPg(props) {
       </div>
       <Route path='/add-event/url-form' render={(routeProps) => {
         return(
-          <UrlForm onAddEvent={this.handleOnAddEvent(routeProps)} {...routeProps}/>
+          <UrlForm onAddEvent={handleOnAddEvent(routeProps)} {...routeProps}/>
         )
       }}
       />
       <Route path='/add-event/custom-form' render={(routeProps) => {
         return(
-          <CustomEventForm onAddEvent={this.handleOnAddEvent(routeProps)} {...routeProps}/>
+          <CustomEventForm onAddEvent={handleOnAddEvent(routeProps)} {...routeProps}/>
         )
       }}
       />
