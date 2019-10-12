@@ -1,0 +1,32 @@
+.App {
+  display: grid;
+  grid-template-columns: 2fr 1fr ;
+  grid-template-rows: auto auto 1fr;
+  grid-template-areas: 'nav narrator' 'nav narrator' 'main main';
+  min-height: 100vh;
+}
+
+.App > * {
+  padding: 20px;
+}
+
+.App > nav {
+  grid-area: nav;
+  background-color: coral;
+}
+
+.App > main {
+  grid-area: main;
+  background-color: beige;
+
+}
+
+.App > .router-data {
+  grid-area: narrator;
+  background-color: black;
+  color: white;
+}
+
+.App form label {
+  display: block;
+}

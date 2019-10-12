@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { Route, Switch, NavLink } from 'react-router-dom';
+import './App.css'
 import AppContext from './AppContext'
 import AddEventPg from './AddEventPg'
 import ListPg from './ListPg'
@@ -64,12 +65,14 @@ class App extends Component {
             <NavLink to='/add-event'>Add Event</NavLink>{<br/>}
             <NavLink to='/login'>Login</NavLink>
           </nav>
-          <Switch>
-            <Route exact path="/" component={ListPg}/>
-            <PrivateRoute path="/add-event" component={AddEventPg}/>
-            <Route path="/login" component={Login}/>
-            <Route path="/register" component={Registration}/>
-          </Switch>
+          <main>
+            <Switch>
+              <Route exact path="/" component={ListPg}/>
+              <PrivateRoute path="/add-event" component={AddEventPg}/>
+              <Route path="/login" component={Login}/>
+              <Route path="/register" component={Registration}/>
+            </Switch>
+          </main>
         </ AppContext.Provider >
       </div>
     )
