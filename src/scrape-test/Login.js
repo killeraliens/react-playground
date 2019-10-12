@@ -6,22 +6,27 @@ class Login extends Component {
     username: '',
     password: ''
   }
+
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log('logging in with', this.state)
+    let currState = { ...this.state }
+    let newState = {username: '', password: ''}
+    console.log('logging in with', currState);
+    this.setState(newState)
   }
 
   updateState = (e) => {
     const {name, value} = e.target
     let newState = { ...this.state, [name]: value}
-     this.setState(newState)
+    this.setState(newState)
     //return this.setState(newState)
+    //whats the difference if i add 'return'?
   }
 
   render() {
     return(
       <form className="Login" onSubmit={this.handleSubmit} >
-        <h2>Login</h2>
+        <legend>Login</legend>
         <label htmlFor="username">Username</label>
         <input id="username" name="username" type="text" value={this.state.username} onChange={this.updateState}/>
         <label htmlFor="password">Password</label>

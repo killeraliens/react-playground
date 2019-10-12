@@ -4,6 +4,7 @@ import AppContext from './AppContext'
 import AddEventPg from './AddEventPg'
 import ListPg from './ListPg'
 import Login from './Login'
+import PrivateRoute from './PrivateRoute'
 
 
 class App extends Component {
@@ -64,7 +65,7 @@ class App extends Component {
           </nav>
           <Switch>
             <Route exact path="/" component={ListPg}/>
-            <Route path="/add-event" component={AddEventPg}/>
+            <PrivateRoute path="/add-event" component={AddEventPg}/>
             <Route path="/login" component={Login}/>
           </Switch>
         </ AppContext.Provider >

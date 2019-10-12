@@ -57,6 +57,7 @@ class UrlForm extends Component {
 
     return(
       <form className="UrlForm" onSubmit={this.handleSubmit}>
+        <legend>Add Event From Facebook</legend>
         <label htmlFor="url-input">Type in Event Url or Id</label>
         <input id="url-input" name="url-input" type="text" value={this.state.inputVal} onChange={this.updateInputVal} required/>
         <button type="submit">Scrape Dis</button>
