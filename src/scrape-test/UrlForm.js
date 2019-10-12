@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import AppContext from './AppContext';
 
 class UrlForm extends Component {
   static defaultProps = {
-    onAddEvent: () => {},
+    onAddEvent: () => {}
   }
+
+  static contextType = AppContext;
 
   state = {
     inputVal: '',
@@ -16,7 +19,7 @@ class UrlForm extends Component {
     })
   }
 
-  callFacebookApi = (eventId) => {
+  getEventFromFacebook = (eventId) => {
     //what url do i fetch to send the eventId to search?
     fetch('localhost:5000/auth/facebook/callback')
     .then(res => {
@@ -38,12 +41,13 @@ class UrlForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-
+    //how do i shorten the below prop copy
     const stateCopy  = { ...this.state }
     const eventId = stateCopy.inputVal
     // should I also be sending the current users login credentials here?
-    // this.callFacebookApi(eventId, contextUser)
-    this.callFacebookApi(eventId)
+    // Or For now we can use mine on server side? And I would allow access to the forms to any visitor?
+    // this.callFacebookApi(eventId, this.context.user)
+    this.getEventFromFacebook(eventId)
   }
 
   render() {
