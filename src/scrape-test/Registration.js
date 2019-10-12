@@ -12,8 +12,11 @@ class Registration extends Component {
         <input type="text" id="reg-pw-1" name="reg-pw-1" />
         <label htmlFor="reg-pw-2">Re-Enter Password</label>
         <input type="text" id="reg-pw-2" name="reg-pw-2" />
+        <button type="button" onClick={() => this.props.history.push('/')}>Cancel</button>
         <button type="submit">Ok Done</button>
       </form>
     )
   }
 }
+
+export default Registration;

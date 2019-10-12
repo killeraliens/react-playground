@@ -4,6 +4,7 @@ import AppContext from './AppContext'
 import AddEventPg from './AddEventPg'
 import ListPg from './ListPg'
 import Login from './Login'
+import Registration from './Registration'
 import PrivateRoute from './PrivateRoute'
 
 
@@ -67,6 +68,7 @@ class App extends Component {
             <Route exact path="/" component={ListPg}/>
             <PrivateRoute path="/add-event" component={AddEventPg}/>
             <Route path="/login" component={Login}/>
+            <Route path="/register" component={Registration}/>
           </Switch>
         </ AppContext.Provider >
       </div>
