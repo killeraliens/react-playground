@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
+import AppContext from './AppContext';
 
 class CustomEventForm extends Component {
+  static defaultProps = {
+    onAddEvent: () => {}
+  }
+
+  static contextType = AppContext;
+
   state = {
     event: {
       title: '',
