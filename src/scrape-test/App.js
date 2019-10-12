@@ -13,29 +13,29 @@ class App extends Component {
     user: null
   }
 
-  // callBackendAPI = async () => {
-  //   const response = await fetch('/express_backend');
-  //   const body = await response.json();
+  callBackendAPI = async () => {
+    const response = await fetch('/express_backend');
+    const body = await response.json();
 
-  //   if (response.status !== 200) {
-  //     throw Error(body.message)
-  //   }
+    if (response.status !== 200) {
+      throw Error(body.message)
+    }
 
-  //   return body
-  // }
+    return body
+  }
 
-  // componentDidMount() {
-  //   this.callBackendAPI()
-  //     .then(res => {
-  //       console.log('events from my server', res.events)
-  //       this.setState({
-  //         data: res.express,
-  //         events: res.events
-  //       })
+  componentDidMount() {
+    this.callBackendAPI()
+      .then(res => {
+        console.log('events from my server', res.events)
+        this.setState({
+          data: res.express,
+          events: res.events
+        })
 
-  //     })
-  //     .catch(err => console.log('ERROR ON SERVER MOUNT', err))
-  // }
+      })
+      .catch(err => console.log('ERROR ON SERVER MOUNT', err))
+  }
 
 
   addEvent = (newEvent) => {
@@ -63,16 +63,6 @@ class App extends Component {
             <NavLink to='/login'>Login</NavLink>
           </nav>
           <Switch>
-         {/*   <Route exact path="/" render={(routeProps) => {
-              return(
-                <ListPg events={this.state.events} { ...routeProps }/>
-              )
-            }}/>
-           <Route path="/add-event" render={(routeProps) => {
-              return(
-                <AddEventPg onAddEvent={this.addEvent} { ...routeProps }/>
-              )
-            }}/>*/}
             <Route exact path="/" component={ListPg}/>
             <Route path="/add-event" component={AddEventPg}/>
             <Route path="/login" component={Login}/>
