@@ -4,7 +4,11 @@ import UrlForm from './UrlForm';
 import CustomEventForm from './CustomEventForm';
 
 export default function AddEventPg(props) {
-  // add context consumer for user logged in state
+
+  handleOnAddEvent = (props) => {
+    props.history.push('/')
+  }
+
   return(
     <div className="AddEventPg">
       <h2>Add an Event</h2>
@@ -19,13 +23,13 @@ export default function AddEventPg(props) {
       </div>
       <Route path='/add-event/url-form' render={(routeProps) => {
         return(
-          <UrlForm onAddEvent={props.onAddEvent} {...routeProps}/>
+          <UrlForm onAddEvent={this.handleOnAddEvent(routeProps)} {...routeProps}/>
         )
       }}
       />
       <Route path='/add-event/custom-form' render={(routeProps) => {
         return(
-          <CustomEventForm onAddEvent={props.onAddEvent} {...routeProps}/>
+          <CustomEventForm onAddEvent={this.handleOnAddEvent(routeProps)} {...routeProps}/>
         )
       }}
       />
