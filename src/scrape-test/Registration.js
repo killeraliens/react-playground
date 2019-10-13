@@ -72,31 +72,36 @@ class Registration extends Component {
   }
 
   render() {
+    const nameError = this.state.name.touched && this.validateName();
+    const emailError = this.state.email.touched && this.validateEmail();
+    const passwordError = this.state.password.touched && this.validatePassword();
+    const repeatPasswordError = this.state.repeatPassword.touched && this.validateRepeatPassword();
+
     return(
       <form className='Registration' onSubmit={this.handleSubmit}>
         <h2>Registration</h2>
         <div className="form-group">
           <label htmlFor="name">Name*</label>
           <input type="text" id="name" name="name" onChange={this.updateValue}/>
-          <ValidationError message={this.validateName()} />
+          <ValidationError message={this.validateName()} visible={nameError}/>
         </div>
         <div className="form-group">
           <label htmlFor="email">Email*</label>
           <input type="email" id="email" name="email" onChange={this.updateValue}/>
-          <ValidationError message={this.validateEmail()} />
+          <ValidationError message={this.validateEmail()} visible={emailError}/>
         </div>
         <div className="form-group">
           <label htmlFor="password">Password*</label>
           <input type="password" id="password" name="password" onChange={this.updateValue}/>
-          <ValidationError message={this.validatePassword()} />
+          <ValidationError message={this.validatePassword()} visible={passwordError}/>
         </div>
         <div className="form-group">
           <label htmlFor="repeat-password">Repeat Password*</label>
           <input type="password" id="repeatPassword" name="repeatPassword" onChange={this.updateValue}/>
-          <ValidationError message={this.validateRepeatPassword()} />
+          <ValidationError message={this.validateRepeatPassword()} visible={repeatPasswordError}/>
         </div>
         <button type="reset" onClick={() => this.props.history.push('/')}>Cancel</button>
-        <button type="submit">Ok Done</button>
+        <button type="submit" disabled={( this.validateName() || this.validateEmail() || this.validatePassword() || this.validateRepeatPassword())}>Ok Done</button>
       </form>
     )
   }
