@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Link, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 //import App from './paltrows-power-toes/App';
 //import AppLang from './lang-context/AppLang'

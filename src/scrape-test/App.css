@@ -10,6 +10,10 @@
   padding: 20px;
 }
 
+.App * {
+  box-sizing: border-box;
+}
+
 .App > nav {
   grid-area: nav;
   background-color: coral;
@@ -29,4 +33,9 @@
 
 .App form label {
   display: block;
+}
+
+.App form legend {
+  font-size: 22px;
+  font-weight: bold;
 }

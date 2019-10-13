@@ -16,7 +16,7 @@ class App extends Component {
     user: null
   }
 
-  callBackendAPI = async () => {
+  callExpressBackend = async () => {
     const response = await fetch('/express_backend');
     const body = await response.json();
 
@@ -28,9 +28,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.callBackendAPI()
+    this.callExpressBackend()
       .then(res => {
-        console.log('events from my server', res.events)
+        console.log('component did mount', res.events)
         this.setState({
           data: res.express,
           events: res.events
