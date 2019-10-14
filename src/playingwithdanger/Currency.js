@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import CurrencyError from './CurrencyError'
 
 export default function Currency(props) {
@@ -11,4 +12,10 @@ export default function Currency(props) {
       {money}
     </div>
   )
+}
+
+Currency.propTypes = {
+  locale: PropTypes.string,
+  currency: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired
 }

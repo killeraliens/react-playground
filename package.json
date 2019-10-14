@@ -6,6 +6,7 @@
     "axios": "^0.19.0",
     "cheerio": "^1.0.0-rc.3",
     "jquery": "^3.4.1",
+    "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1",
@@ -16,7 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "serve":"serve -s build",
+    "serve": "serve -s build",
     "preserve": "npm run build"
   },
   "eslintConfig": {

@@ -9,12 +9,17 @@ class App extends Component {
       <div className="App">
         <h2>Currencies..</h2>
         <CurrencyError>
-          <Currency locale='de-DE' value={34} currency='US' />
+          {/*currency error doesnt throw on bad propType passed ? */}
+          <Currency locale='de-DE' value='helllo' currency='USD' />
+        </CurrencyError>
+        <CurrencyError>
           <Currency locale='ja-JP' value={34} currency='JPY' />
+        </CurrencyError>
+        <CurrencyError>
           <Currency locale='en-US' value={34} currency='HKD' />
         </CurrencyError>
        <p>this shows up</p>
-       <Currency locale='ja-JP' value={34} currency='JPY' />
+       <Currency locale='ja-JP' value='helllo' currency='JPY' />
        <Currency locale='ja-JP' value={34} currency='JPY' />
        <Currency locale='ja-JP' value={34} currency='JPY' />
       </div>
