@@ -19,7 +19,7 @@ class App extends Component {
           <Currency locale='en-US' value={34} currency='HKD' />
         </CurrencyError>
        <p>this shows up</p>
-       <Currency locale='ja-JP' value='helllo' currency='JPY' />
+       <Currency locale='ja-JP' value={34}currency='JPY' />
        <Currency locale='ja-JP' value={34} currency='JPY' />
        <Currency locale='ja-JP' value={34} currency='JPY' />
       </div>

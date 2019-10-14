@@ -14,6 +14,10 @@ export default function Currency(props) {
   )
 }
 
+Currency.defaultProps = {
+  locale: 'en-US'
+}
+
 Currency.propTypes = {
   locale: PropTypes.string,
   currency: PropTypes.string.isRequired,
