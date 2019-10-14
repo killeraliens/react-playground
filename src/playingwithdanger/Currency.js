@@ -8,8 +8,7 @@ export default function Currency(props) {
     : new Intl.NumberFormat({style: 'currency', currency: currency}).format(value)
   return(
     <div>
-     <CurrencyError />
-     {money}
+      {money}
     </div>
   )
 }
